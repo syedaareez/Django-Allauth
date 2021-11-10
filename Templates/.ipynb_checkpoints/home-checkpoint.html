@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+{% load socialaccount %}
+{% load static %}
+
+<html>
+    <head>
+        <title>Authentication</title>
+        <link rel="stylesheet" href="{% static 'style.css' %}">
+        <script src="{% static 'main.js' %}"></script>
+    </head>
+    <body>
+        <div >
+        <br><br><br><br>
+            
+        <div class="login-wrapper">
+            
+        {% if user.is_authenticated %}
+        <br><br>
+        <h1 class="head">Welcome <br><br>{{ user.username }} </h1><br>
+
+        <form method="POST" action="/accounts/logout/">
+            {% csrf_token %}
+            <input id="formbtn" type="submit" value="Sign Out">
+        </form>
+        <br><br>
+        {% else %}
+
+        
+
+
+
+        {% if registered %}
+        <br>
+        <h1 class="head">LOGIN</h1>
+        <br>
+
+        <form method="POST" action='{% url "basic_app:login" %}' >
+            {% csrf_token %}
+            
+            <input id="field1" type="text" name="username" onfocusout="myFunc()"><br>
+            
+            <label class="username" for="username">Username</label>
+            <br><br>
+            
+            <input id="field2" type="password" name="password" onfocusout="myFunc2()">
+            <label class="password" for="password">Password</label>
+            
+            <br>
+            <input id="formbtn" type="submit" value="Login">
+        </form>
+            <br>
+
+        {% else %}
+        <br>
+        <h1 class="head">REGISTER</h1>
+        <br>
+
+        <form method="POST" action='{% url "basic_app:register" %}'>
+            {% csrf_token %}
+            <input id="field1" type="text" name="username" onfocusout="myFunc()"><br>
+            
+            <label class="username" for="username">Username</label>
+            <br><br>
+            
+            <input id="field2" type="password" name="password" onfocusout="myFunc2()">
+            <label class="password" for="password">Password</label>
+            
+            <br>
+            <input id="formbtn" type="submit" value="Register">
+        </form>
+            <br>
+            
+
+        {% endif %}
+            <br>
+            <p class="oror" style="color: rgba(255,255,255,0.7);">OR</p>
+
+            <a href="{% provider_login_url 'google' %}" ><button id="google">Google</button></a>
+            <a href="{% provider_login_url 'github' %}" ><button id="github">Github</button></a>
+            <a href='{% provider_login_url "facebook" method="oauth2" %}' ><button id="facebook">Facebook</button></a>
+            
+            <br><br><br><br>
+            {% if registered %}
+            <div id="notice"><span>Dont have an account?</span><a href="{% url 'basic_app:signup' %}"> Register here</a></div>
+            {% else %}
+            <div id="notice"><span> Already have an account? </span><a href="{% url 'basic_app:signin' %}">SignIn here</a></div>
+            {% endif %}
+
+        {% endif %}
+            <br>
+            
+            </div>
+            </div>
+        
+    </body>
+</html>

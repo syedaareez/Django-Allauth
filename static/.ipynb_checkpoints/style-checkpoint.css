@@ -1,0 +1,161 @@
+body{
+    background-image:url("https://40obml2t8u691fd442y9pg71-wpengine.netdna-ssl.com/wp-content/uploads/login-page-bg.jpg");
+    background-size:cover;
+    text-align:center;
+}
+@keyframes wrapper{
+    from{
+        height:0px;
+        overflow:hidden;
+    }
+    to{
+        height:520px;
+        overflow:hidden;
+    }
+    
+}
+.login-wrapper{
+    display:block;
+    background-color:rgba(255,255,255,0.1);
+    margin:auto;
+    border-radius:6px;
+    width:30%;
+    box-shadow:2px 2px 5px 5px rgba(0, 0, 0, 0.2);
+    animation-name:wrapper;
+    animation-duration:0.5s;
+    
+}
+a{
+    text-decoration:none;
+    color:#92b7f7;
+}
+@keyframes heading{
+    from{
+        font-size:30px;
+        color:#92b7f7;
+    }
+    to{
+        font-size:40px;
+        color:rgba(255,255,255,0.9);
+    }
+}
+.head{
+    font-family: Sans-serif;
+    letter-spacing:3px;
+    font-weight:bold;
+    animation-name:heading;
+    animation-duration:0.5s;
+    font-size:40px;
+    color:rgba(255,255,255,0.9);
+}
+
+
+#field1,#field2{
+    text-align:center;
+    padding:10px;
+    font-size:16px;
+    width:300px;
+    border-top:none;
+    border-right:none;
+    border-left:none;
+    outline:none;
+    color:white;
+    border-width:1px;
+    border-color:white;
+    background:transparent;
+}
+
+#notice{
+    color:rgba(255,255,255,0.8);
+}
+
+#formbtn{
+    border-radius:7px;
+    padding:6px;
+    width:280px;
+    font-size:15px;
+    font-weight:bold;
+    color:white;
+    margin:5px;
+    border:1px solid rgba(255,255,255,0.3);
+    background:transparent;
+    cursor:pointer;
+}
+.oror:before{
+    content: "";
+    display: block;
+    width: 130px;
+    height: 1px;
+    background: rgba(255,255,255,0.4);
+    float :left;
+    margin-left:50px;
+    position:relative;
+    top:9px;
+}
+.oror:after{
+    content: "";
+    display: block;
+    width: 130px;
+    height: 1px;
+    background: rgba(255,255,255,0.4);
+    float:right;
+    margin-right:50px;
+    position:relative;
+    top:9px;
+}
+#google,#github,#facebook{
+    border-radius:7px;
+    padding:6px;
+    width:100px;
+    font-size:15px;
+    font-weight:bold;
+    color:white;
+    margin:5px;
+    border:1px solid rgba(255,255,255,0.3);
+    background:transparent;
+    cursor:pointer;
+}
+#google img,#github img,#facebook img{
+    width:20px;
+    height:20px;
+    float:right;
+}
+#google{
+    background-color:#db3236;
+}
+#github{
+    background-color:#171515;
+}
+#facebook{
+    background-color:#3b5998;
+}
+
+label{
+    display: block;
+    position: relative;
+    top:-30px;
+    max-height: 0;
+    font-weight: 500;
+    pointer-events: none;
+    color:white;
+}
+
+#field1:focus ~ .username,#field2:focus ~ .password{
+    color:#92b7f7;
+    transform: translate(0, -20px) scale(0.82, 0.82);
+    transition:0.3s;
+    
+}
+.has-content ~ .username,.has-content2 ~ .password{
+    color:#92b7f7;
+    transform: translate(0, -20px) scale(0.82, 0.82);
+}
+#field1:focus,#field2:focus{
+    border-color:#92b7f7;
+    transition:0.3s;
+}
+@media (max-device-width: 1000px) {
+  .login-wrapper{
+      width: 500px;
+  }    
+}
